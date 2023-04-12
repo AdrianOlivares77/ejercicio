@@ -1,0 +1,105 @@
+{
+	"info": {
+		"_postman_id": "353f7e50-415d-4a26-8c2f-af25b4f40341",
+		"name": "Create User Ejercicio",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "user",
+							"value": "admin",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create User",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJKV1QiLCJzdWIiOiJhZG1pbiIsImF1dGhvcml0aWVzIjpbIlJPTEVfVVNFUiJdLCJpYXQiOjE2ODEyMzQ5NjQsImV4cCI6MTY4MTIzNTU2NH0.txlkhmcGzV-C_OSXgA_FFVCH1z0hAfWg_m5pUK-cNjvD9MaobXHtEhVLGjGQSgofPsUPhJuWT17uNTdhXj0lBQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Adrián\",\r\n    \"email\": \"correo@correo.co\",\r\n    \"password\": \"AA2aaaa2\",\r\n    \"phones\": [\r\n        {\r\n            \"number\": \"123456789\",\r\n            \"cityCode\": \"1\",\r\n            \"countryCode\": \"77\"\r\n        },\r\n        {\r\n            \"number\": \"123456789\",\r\n            \"cityCode\": \"1\",\r\n            \"countryCode\": \"77\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all Users",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJKV1QiLCJzdWIiOiJhZG1pbiIsImF1dGhvcml0aWVzIjpbIlJPTEVfVVNFUiJdLCJpYXQiOjE2ODEyMjkxODcsImV4cCI6MTY4MTIyOTc4N30.BoVdhOSkWAw-ul5rIs0ByDCyJdTIs1f0tJnWoiXXhiETwr7a5XtnjxxypoXP5Da8wYjRGHMzlhfavPSOHhas8w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/getAll",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"getAll"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
