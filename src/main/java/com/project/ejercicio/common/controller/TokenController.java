@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.project.ejercicio.common.exception.JwtException;
-import com.project.ejercicio.data.model.TokenModel;
+import com.project.ejercicio.domain.model.TokenModel;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.web.bind.annotation.PostMapping;

@@ -2,11 +2,11 @@ package com.project.ejercicio.domain.usecase;
 
 import com.project.ejercicio.common.controller.TokenController;
 import com.project.ejercicio.common.exception.ValidationException;
-import com.project.ejercicio.data.entity.UserEntity;
-import com.project.ejercicio.data.mapper.UserMapper;
-import com.project.ejercicio.data.model.TokenModel;
-import com.project.ejercicio.data.model.UserModel;
-import com.project.ejercicio.data.repository.JPARepository;
+import com.project.ejercicio.domain.entity.UserEntity;
+import com.project.ejercicio.domain.mapper.UserMapper;
+import com.project.ejercicio.domain.model.TokenModel;
+import com.project.ejercicio.domain.model.UserModel;
+import com.project.ejercicio.domain.repository.JPARepository;
 import com.project.ejercicio.domain.fixture.TokenModelFixture;
 import com.project.ejercicio.domain.fixture.UserEntityFixture;
 import com.project.ejercicio.domain.fixture.UserModelFixture;
@@ -51,22 +51,6 @@ public class UserUsecaseImplTest {
     }
 
     @Test
-    void when_validateEmailNotExist_respond_true(){
-        List<UserEntity> users = new ArrayList<>();
-        Mockito.when(repository.findAll()).thenReturn(users);
-        Assertions.assertTrue(usecase.validateEmailNotExist(email));
-    }
-
-    @Test
-    void when_validateEmailNotExist_throws_BAD_REQUEST(){
-        List<UserEntity> users = new ArrayList<>();
-        UserEntity user = UserEntityFixture.userEntityMock();
-        users.add(user);
-        Mockito.when(repository.findAll()).thenReturn(users);
-        Assertions.assertThrows(ResponseStatusException.class, ()-> usecase.validateEmailNotExist(email));
-    }
-
-    @Test
     void when_createUser_respond_successful(){
         TokenModel token = TokenModelFixture.tokenModelMock();
         UserModel userNotMapped = UserModelFixture.userModelMock();
@@ -78,14 +62,14 @@ public class UserUsecaseImplTest {
     }
 
     @Test
-    void when_createUser_throws_BAD_REQUEST(){
+    void when_createUser_throws_INTERNAL_ERROR(){
         TokenModel token = TokenModelFixture.tokenModelMock();
         UserModel userNotMapped = UserModelFixture.userModelMock();
         UserEntity userMapped = UserEntityFixture.userEntityMock();
 
         Mockito.when(mapper.map(userNotMapped)).thenReturn(userMapped);
         Mockito.when(tokenController.login(userMapped.getName())).thenReturn(token);
-        Mockito.when(usecase.validateEmailNotExist(email)).thenThrow(new ResponseStatusException(HttpStatus.BAD_REQUEST));
+        Mockito.when(usecase.createUser(userNotMapped)).thenThrow(new ResponseStatusException(HttpStatus.BAD_REQUEST));
         Assertions.assertThrows(ValidationException.class, ()-> usecase.createUser(userNotMapped));
     }
 

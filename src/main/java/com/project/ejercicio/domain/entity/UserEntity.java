@@ -1,7 +1,7 @@
-package com.project.ejercicio.data.entity;
+package com.project.ejercicio.domain.entity;
 
 import com.project.ejercicio.common.validator.ValidatePassword;
-import com.project.ejercicio.data.model.TokenModel;
+import com.project.ejercicio.domain.model.TokenModel;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -25,6 +25,7 @@ public class UserEntity implements Serializable {
 
     @NotEmpty
     @Email
+    @Column(unique = true)
     private String email;
 
     @NotEmpty

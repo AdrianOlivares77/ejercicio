@@ -1,4 +1,4 @@
-package com.project.ejercicio.data.model;
+package com.project.ejercicio.domain.model;
 
 import javax.persistence.Embeddable;
 

@@ -14,6 +14,6 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
     @ExceptionHandler(ValidationException.class)
     public final ResponseEntity<ExceptionResponse> handleNotFoundException(ValidationException ex) {
         ExceptionResponse exceptionResponse = new ExceptionResponse(ex.getMessage());
-        return new ResponseEntity<ExceptionResponse>(exceptionResponse, HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<ExceptionResponse>(exceptionResponse, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }

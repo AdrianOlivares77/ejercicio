@@ -1,9 +1,8 @@
-package com.project.ejercicio.domain.controller;
+package com.project.ejercicio.common.controller;
 
 import com.project.ejercicio.domain.usecase.UserUsecaseImpl;
-import com.project.ejercicio.data.entity.UserEntity;
-import com.project.ejercicio.data.model.UserModel;
-import org.springframework.http.ResponseEntity;
+import com.project.ejercicio.domain.entity.UserEntity;
+import com.project.ejercicio.domain.model.UserModel;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

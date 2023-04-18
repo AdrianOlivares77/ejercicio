@@ -1,8 +1,8 @@
 package com.project.ejercicio.domain.fixture;
 
-import com.project.ejercicio.data.entity.PhoneEntity;
-import com.project.ejercicio.data.entity.UserEntity;
-import com.project.ejercicio.data.model.TokenModel;
+import com.project.ejercicio.domain.entity.PhoneEntity;
+import com.project.ejercicio.domain.entity.UserEntity;
+import com.project.ejercicio.domain.model.TokenModel;
 
 import java.util.ArrayList;
 import java.util.Date;

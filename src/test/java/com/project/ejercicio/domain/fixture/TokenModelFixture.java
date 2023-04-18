@@ -1,7 +1,6 @@
 package com.project.ejercicio.domain.fixture;
 
-import com.project.ejercicio.data.entity.UserEntity;
-import com.project.ejercicio.data.model.TokenModel;
+import com.project.ejercicio.domain.model.TokenModel;
 
 public class TokenModelFixture {
     public static TokenModel tokenModelMock() {
